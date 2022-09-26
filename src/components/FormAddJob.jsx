@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
-function FormAddJob() {
+function FormAddJob({onAdd}) {
 
   const [date, setDate] = useState("");
   const [role, setRole] = useState("");
@@ -14,7 +14,11 @@ function FormAddJob() {
   function handleSubmit(ev) {
     ev.preventDefault();
 
-    console.log({date, role, company})
+    onAdd({date, role, company, status: "applied"})
+
+    setDate("")
+    setRole("")
+    setCompany("")
   }
 
   return (

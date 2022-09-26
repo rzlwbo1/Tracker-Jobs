@@ -1,7 +1,7 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table';
 
-function StripedRowExample() {
+function StripedRowExample({jobDatas}) {
   return (
     <Table striped responsive="md">
       <thead>
@@ -15,23 +15,20 @@ function StripedRowExample() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-        </tr>
-
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-        </tr>
+        {
+          jobDatas.map((jb, index) => {
+            return (
+              <tr>
+                <td>{index +1}</td>
+                <td>{jb.date}</td>
+                <td>{jb.role}</td>
+                <td>{jb.company}</td>
+                <td>{jb.status}</td>
+                <td>Aksi</td>
+              </tr>
+            )
+          })
+        }
       </tbody>
     </Table>
   );
