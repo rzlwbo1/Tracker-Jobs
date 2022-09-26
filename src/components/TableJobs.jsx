@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table';
 
 function StripedRowExample() {
   return (
-    <Table striped>
+    <Table striped responsive="md">
       <thead>
         <tr>
           <th>No</th>
