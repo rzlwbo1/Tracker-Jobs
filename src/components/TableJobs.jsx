@@ -1,5 +1,7 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table';
+import Status from './Status'
+
 
 function StripedRowExample({jobDatas}) {
   return (
@@ -23,7 +25,9 @@ function StripedRowExample({jobDatas}) {
                 <td>{jb.date}</td>
                 <td>{jb.role}</td>
                 <td>{jb.company}</td>
-                <td>{jb.status}</td>
+                <td>
+                  <Status />
+                </td>
                 <td>Aksi</td>
               </tr>
             )

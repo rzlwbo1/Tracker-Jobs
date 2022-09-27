@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FormAddJob from "./FormAddJob";
 import TableJobs from "./TableJobs";
 import Container from "react-bootstrap/Container";
+import Status from "./Status";
 
 function App() {
 
