@@ -3,11 +3,11 @@ import Table from 'react-bootstrap/Table';
 import Status from './Status'
 
 
-function StripedRowExample({jobDatas, onUpdateStatus}) {
+function TableJobs({jobDatas, onUpdateStatus, onDeleteJob}) {
   return (
     <Table striped responsive="md">
       <thead>
-        <tr>
+        <tr style={{textAlign: 'center'}}>
           <th>No</th>
           <th>Date Applied</th>
           <th>Role</th>
@@ -20,7 +20,7 @@ function StripedRowExample({jobDatas, onUpdateStatus}) {
         {
           jobDatas.map((jb, index) => {
             return (
-              <tr key={jb.id}>
+              <tr key={jb.id} style={{textAlign: 'center'}}>
                 <td>{index +1}</td>
                 <td>{jb.date}</td>
                 <td>{jb.role}</td>
@@ -28,7 +28,9 @@ function StripedRowExample({jobDatas, onUpdateStatus}) {
                 <td>
                   <Status status={jb.status} onUpdateStatus={onUpdateStatus} id={jb.id} />
                 </td>
-                <td>Aksi</td>
+                <td>
+                  <button className='btn p-0'><i className='bi bi-x-circle-fill' style={{fontSize: "1.3em", color: 'crimson'}} onClick={() => onDeleteJob(jb.id)} ></i></button>
+                </td>
               </tr>
             )
           })
@@ -38,4 +40,4 @@ function StripedRowExample({jobDatas, onUpdateStatus}) {
   );
 }
 
-export default StripedRowExample;
+export default TableJobs;

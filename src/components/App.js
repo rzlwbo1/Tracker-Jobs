@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import FormAddJob from "./FormAddJob";
 import TableJobs from "./TableJobs";
 import Container from "react-bootstrap/Container";
-import Status from "./Status";
 
 function App() {
 
@@ -53,6 +52,14 @@ function App() {
   }
 
 
+  function onDeleteJob(id) {
+
+    const filterdDataHasDelted = jobs.filter((jb) => jb.id !== id)
+
+    setJobs(filterdDataHasDelted);
+  }
+
+
   return (
     <div className="p-4">
       <h1 className="fw-bold text-center title-app">
@@ -65,7 +72,7 @@ function App() {
         <h2 className="fw-bold" style={{ marginTop: 80 }}>
           List <span style={{ color: "#2FC851" }}>My Jobs</span>
         </h2>
-        <TableJobs jobDatas={jobs} onUpdateStatus={handleUpdateStatus}/>
+        <TableJobs jobDatas={jobs} onUpdateStatus={handleUpdateStatus} onDeleteJob={onDeleteJob}/>
       </Container>
     </div>
   );
