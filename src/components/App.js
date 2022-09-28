@@ -52,7 +52,7 @@ function App() {
 
   }
 
-  function onDeleteJob(id) {
+  function handleDeleteJob(id) {
 
     const filterdDataHasDelted = jobs.filter((jb) => jb.id !== id)
 
@@ -72,7 +72,7 @@ function App() {
         <h2 className="fw-bold" style={{ marginTop: 80 }}>
           List <span style={{ color: "#2FC851" }}>My Jobs</span>
         </h2>
-        <TableJobs jobDatas={jobs} onUpdateStatus={handleUpdateStatus} onDeleteJob={onDeleteJob}/>
+        <TableJobs jobDatas={jobs} onUpdateStatus={handleUpdateStatus} onDeleteJob={handleDeleteJob}/>
       </Container>
     </div>
   );
