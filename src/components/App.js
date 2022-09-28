@@ -42,10 +42,13 @@ function App() {
     // get status by clicking dropdowns
     const getStatus = ev.target.textContent;
 
+    // change status
     const getDataById = jobs.find((jb) => jb.id == idJob);
-    const filteredDataNotId = jobs.filter((jb) => jb.id != idJob)
+    getDataById.status = getStatus;
 
-    console.log(getDataById, getStatus, filteredDataNotId)
+    const filteredDataNotId = jobs.filter((jb) => jb.id != idJob);
+
+    setJobs([...filteredDataNotId, getDataById])
 
   }
 
