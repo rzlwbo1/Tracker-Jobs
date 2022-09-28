@@ -12,6 +12,8 @@ function Status({ status, onUpdateStatus, id }) {
         size={"sm"}
         style={{ textTransform: "capitalize" }}
       >
+
+        {/* di bawah ini akan membuat dropdown item yg isi text berdaasrkan array di bawah ini */}
         {[
           "accepted",
           "applied",

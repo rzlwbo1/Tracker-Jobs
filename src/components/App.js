@@ -47,10 +47,10 @@ function App() {
 
     const filteredDataNotId = jobs.filter((jb) => jb.id != idJob);
 
+    // masukin data yg bukan sama id, dan data yg udah di ubah statusnya
     setJobs([...filteredDataNotId, getDataById])
 
   }
-
 
   function onDeleteJob(id) {
 

@@ -12,6 +12,9 @@ function FormAddJob({onAdd}) {
 
 
   function handleSubmit(ev) {
+
+    // untuk memudahkan controller component dgn hooks, disarankan pake anon function  di onCgange pada elemen inputnya langsung
+
     ev.preventDefault();
 
     onAdd({date, role, company, status: "applied"})
