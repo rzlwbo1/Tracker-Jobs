@@ -1,3 +1,12 @@
 body {
   font-family: 'Inter', sans-serif !important;
 }
+
+
+@media (min-width: 992px) {
+
+  .form-add-job {
+    max-width: 75%;
+  }
+
+}

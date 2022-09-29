@@ -25,24 +25,24 @@ function FormAddJob({onAdd}) {
   }
 
   return (
-    <div className="form-add-job mx-auto w-75 border p-4 d-flex flex-column justify-content-center align-items-stretch mt-5 shadow" style={{borderRadius: 10}}>
+    <div className="form-add-job mx-auto border p-4 d-flex flex-column justify-content-center align-items-stretch mt-5 shadow" style={{borderRadius: 10}}>
       <h4 className="fw-bold align-self-start">Add Job</h4>
       <Form onSubmit={handleSubmit} >
         <Row>
-          <Col>
+          <Col sm="auto" className="mb-3 mb-sm-0" >
             <Form.Control type="date" placeholder="Date" name="date" onChange={(ev) => setDate(ev.target.value)} value={date} required/>
           </Col>
 
-          <Col>
+          <Col sm="auto" className="mb-3 mb-sm-0">
             <Form.Control type="text" placeholder="Role" name="role" onChange={(ev) => setRole(ev.target.value)} value={role} required/>
           </Col>
 
-          <Col>
+          <Col sm="auto" className="mb-3 mb-sm-0">
             <Form.Control type="text" placeholder="Company" name="company" onChange={(ev) => setCompany(ev.target.value)} value={company} required/>
           </Col>
 
-          <Col>
-            <Button variant="success" className="w-100 fw-bold" type="submit">Save</Button>
+          <Col md sm="auto" className="mb-3 mb-sm-0">
+            <Button variant="success" className="w-100 fw-bold btn-save" type="submit">Save</Button>
           </Col>
         </Row>
       </Form>
