@@ -2,7 +2,7 @@ import React from "react";
 import Table from "react-bootstrap/Table";
 import Status from "./Status";
 
-function TableJobs({ jobDatas, onUpdateStatus, onDeleteJob }) {
+function TableJobs({ jobDatas, onUpdateStatus, onDeleteJob, onEditJob }) {
   return (
     <Table striped responsive="md">
       <thead>
@@ -31,11 +31,25 @@ function TableJobs({ jobDatas, onUpdateStatus, onDeleteJob }) {
                 />
               </td>
               <td>
-                <button className="btn p-0" onClick={() => onDeleteJob(jb.id)}>
+                <button
+                  className="btn p-0 btn-delete me-1"
+                  onClick={() => onDeleteJob(jb.id)}
+                >
                   <i
                     className="bi bi-x-circle-fill"
                     style={{ fontSize: "1.3em", color: "crimson" }}
                   ></i>
+                </button>
+                |
+                <button
+                  className="btn p-0 btn-edit ms-1"
+                  onClick={() => onEditJob(jb.id)}
+                >
+                  <i
+                    className="bi bi-pencil-square"
+                    style={{ fontSize: "1.3em", color: "darkorange" }}
+                  ></i>
+                  <i></i>
                 </button>
               </td>
             </tr>

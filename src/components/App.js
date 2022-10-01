@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FormAddJob from "./FormAddJob";
 import TableJobs from "./TableJobs";
 import Container from "react-bootstrap/Container";
+import ModalEdit from "./ModalEdit";
 
 function App() {
 
@@ -22,6 +23,9 @@ function App() {
       status: "accepted"
     },
   ]);
+
+  const [showModalState, setShowModal] = useState(false);
+  const [editJob, setEditJob] = useState(null);
 
   function onAddJobs(data) {
 
@@ -59,9 +63,27 @@ function App() {
     setJobs(filterdDataHasDelted);
   }
 
+  function handleEditJob(id) {
 
+    // triggered Modal
+    setShowModal(true)
+
+    const foundJob = jobs.find((jb) => jb.id === id);
+
+    setEditJob(foundJob)
+  }
+
+  function handleCloseModal() {
+
+    setShowModal(false)
+
+  }
+  
   return (
     <div className="p-4">
+
+      <ModalEdit showModal={showModalState} hideModal={handleCloseModal} {...editJob} />
+
       <h1 className="fw-bold text-center title-app">
         Tracker <span style={{ color: "#2FC851" }}>Jobs</span>
       </h1>
@@ -72,7 +94,7 @@ function App() {
         <h2 className="fw-bold" style={{ marginTop: 80 }}>
           List <span style={{ color: "#2FC851" }}>My Jobs</span>
         </h2>
-        <TableJobs jobDatas={jobs} onUpdateStatus={handleUpdateStatus} onDeleteJob={handleDeleteJob}/>
+        <TableJobs jobDatas={jobs} onUpdateStatus={handleUpdateStatus} onDeleteJob={handleDeleteJob} onEditJob={handleEditJob} />
       </Container>
     </div>
   );
