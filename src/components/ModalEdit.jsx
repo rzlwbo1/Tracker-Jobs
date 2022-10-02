@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-function ModalEdit({ showModal, hideModal, date }) {
-
-  // const {id, role, company, status} = dataEditJob;
-
-  // console.log(id)
+function ModalEdit({ showModal, hideModal, dataEditJob }) {
+  
+  const [date, setDate] = useState(dataEditJob.date);
+  const [role, setRole] = useState(dataEditJob.role);
+  const [company, setCompany] = useState(dataEditJob.company);
+  const [status, setStatus] = useState(dataEditJob.status);
 
   return (
     <Modal show={showModal} onHide={hideModal}>
@@ -18,22 +19,41 @@ function ModalEdit({ showModal, hideModal, date }) {
         <Form>
           <Form.Group className="mb-3">
             <Form.Label>Date Applied</Form.Label>
-            <Form.Control type="date" name="date" value={date}/>
+            <Form.Control
+              type="date"
+              name="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
           </Form.Group>
 
           <Form.Group className="mb-3">
             <Form.Label>Role</Form.Label>
-            <Form.Control type="text" name="role" />
+            <Form.Control
+              type="text"
+              name="role"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+            />
           </Form.Group>
 
           <Form.Group className="mb-3">
             <Form.Label>Company</Form.Label>
-            <Form.Control type="text" name="company" />
+            <Form.Control
+              type="text"
+              name="company"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
+            />
           </Form.Group>
 
           <Form.Group className="mb-3">
             <Form.Label>Status</Form.Label>
-            <Form.Select aria-label="Default select example">
+            <Form.Select
+              aria-label="Default select example"
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+            >
               <option>Change Status</option>
               <option value="applied">applied</option>
               <option value="accepted">accepted</option>

@@ -5,7 +5,6 @@ import Container from "react-bootstrap/Container";
 import ModalEdit from "./ModalEdit";
 
 function App() {
-
   // accepted, applied, rejected, test, ghosting, interview
   const [jobs, setJobs] = useState([
     {
@@ -13,14 +12,14 @@ function App() {
       date: "2022-09-26",
       role: "Programmer",
       company: "Bowo Tech",
-      status: "rejected"
+      status: "rejected",
     },
     {
       id: 2,
       date: "2022-09-29",
       role: "UI/UX",
       company: "Skilvul",
-      status: "accepted"
+      status: "accepted",
     },
   ]);
 
@@ -28,20 +27,17 @@ function App() {
   const [editJob, setEditJob] = useState(null);
 
   function onAddJobs(data) {
-
     // destructure yg ada , dan masukin yang baru
 
     const newJob = {
       id: jobs.length + 1,
-      ...data
-    }
+      ...data,
+    };
 
-    setJobs([...jobs, newJob])
-
+    setJobs([...jobs, newJob]);
   }
 
   function handleUpdateStatus(idJob, ev) {
-
     // get status by clicking dropdowns
     const getStatus = ev.target.textContent;
 
@@ -52,37 +48,37 @@ function App() {
     const filteredDataNotId = jobs.filter((jb) => jb.id != idJob);
 
     // masukin data yg bukan sama id, dan data yg udah di ubah statusnya
-    setJobs([...filteredDataNotId, getDataById])
-
+    setJobs([...filteredDataNotId, getDataById]);
   }
 
   function handleDeleteJob(id) {
-
-    const filterdDataHasDelted = jobs.filter((jb) => jb.id !== id)
+    const filterdDataHasDelted = jobs.filter((jb) => jb.id !== id);
 
     setJobs(filterdDataHasDelted);
   }
 
   function handleEditJob(id) {
-
     // triggered Modal
-    setShowModal(true)
+    setShowModal(true);
 
-    const foundJob = jobs.find((jb) => jb.id === id);
+    const foundJob = jobs.find((jb) => jb.id == id);
 
-    setEditJob(foundJob)
+    setEditJob(foundJob);
   }
 
   function handleCloseModal() {
-
-    setShowModal(false)
-
+    setShowModal(false);
   }
-  
+
   return (
     <div className="p-4">
-
-      <ModalEdit showModal={showModalState} hideModal={handleCloseModal} {...editJob} />
+      {editJob && (
+        <ModalEdit
+          showModal={showModalState}
+          hideModal={handleCloseModal}
+          dataEditJob={editJob}
+        />
+      )}
 
       <h1 className="fw-bold text-center title-app">
         Tracker <span style={{ color: "#2FC851" }}>Jobs</span>
@@ -94,7 +90,12 @@ function App() {
         <h2 className="fw-bold" style={{ marginTop: 80 }}>
           List <span style={{ color: "#2FC851" }}>My Jobs</span>
         </h2>
-        <TableJobs jobDatas={jobs} onUpdateStatus={handleUpdateStatus} onDeleteJob={handleDeleteJob} onEditJob={handleEditJob} />
+        <TableJobs
+          jobDatas={jobs}
+          onUpdateStatus={handleUpdateStatus}
+          onDeleteJob={handleDeleteJob}
+          onEditJob={handleEditJob}
+        />
       </Container>
     </div>
   );
