@@ -29,19 +29,19 @@ function FormAddJob({onAdd}) {
       <h4 className="fw-bold align-self-start">Add Job</h4>
       <Form onSubmit={handleSubmit} >
         <Row>
-          <Col sm="auto" className="mb-3 mb-sm-0" >
+          <Col sm md="12" lg="3" className="mb-3" >
             <Form.Control type="date" placeholder="Date" name="date" onChange={(ev) => setDate(ev.target.value)} value={date} required/>
           </Col>
 
-          <Col sm="auto" className="mb-3 mb-sm-0">
+          <Col sm="12" md lg="3" className="mb-3">
             <Form.Control type="text" placeholder="Role" name="role" onChange={(ev) => setRole(ev.target.value)} value={role} required/>
           </Col>
 
-          <Col sm="auto" className="mb-3 mb-sm-0">
+          <Col sm="12" md lg="3" className="mb-3">
             <Form.Control type="text" placeholder="Company" name="company" onChange={(ev) => setCompany(ev.target.value)} value={company} required/>
           </Col>
 
-          <Col md sm="auto" className="mb-3 mb-sm-0">
+          <Col className="mb-3">
             <Button variant="success" className="w-100 fw-bold btn-save" type="submit">Save</Button>
           </Col>
         </Row>
