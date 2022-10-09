@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FormAddJob from "./FormAddJob";
 import TableJobs from "./TableJobs";
 import Container from "react-bootstrap/Container";
-import ModalEdit from "./ModalEdit";
+import ModalJob from "./ModalJob";
 
 function App() {
   // accepted, applied, rejected, test, ghosting, interview
@@ -23,8 +23,8 @@ function App() {
     },
   ]);
 
-  const [showModalState, setShowModal] = useState(false);
-  const [editJob, setEditJob] = useState(null);
+  const [show, setShow] = useState(false)
+  const [editDataJob, setEditDataJob] = useState(null)
 
   function onAddJobs(data) {
     // destructure yg ada , dan masukin yang baru
@@ -57,28 +57,29 @@ function App() {
     setJobs(filterdDataHasDelted);
   }
 
+
   function handleEditJob(id) {
-    // triggered Modal
-    setShowModal(true);
 
-    const foundJob = jobs.find((jb) => jb.id == id);
+    setShow(!show)
 
-    setEditJob(foundJob);
+    const foundJob = jobs.find(jb => jb.id === id);
+    setEditDataJob(foundJob)
+    
   }
-
+  
   function handleCloseModal() {
-    setShowModal(false);
+    
+    setShow(!show)
+    
   }
 
   return (
     <div className="p-4">
-      {editJob && (
-        <ModalEdit
-          showModal={showModalState}
-          hideModal={handleCloseModal}
-          dataEditJob={editJob}
-        />
-      )}
+
+      {
+        editDataJob && 
+        <ModalJob show={show} handleClose={handleCloseModal} editJob={editDataJob} />
+      }
 
       <h1 className="fw-bold text-center title-app">
         Tracker <span style={{ color: "#2FC851" }}>Jobs</span>
