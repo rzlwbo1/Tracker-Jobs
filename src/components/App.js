@@ -21,6 +21,13 @@ function App() {
       company: "Skilvul",
       status: "accepted",
     },
+    {
+      id: 3,
+      date: "2022-10-05",
+      role: "ITDP",
+      company: "Maybank",
+      status: "accepted",
+    },
   ]);
 
   const [show, setShow] = useState(false)
