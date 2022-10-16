@@ -3,7 +3,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 function Status({ status, onUpdateStatus, id }) {
-  if (status == "accepted") {
+  if (status === "accepted") {
     return (
       <DropdownButton
         id="dropdown-item-button"
@@ -23,7 +23,7 @@ function Status({ status, onUpdateStatus, id }) {
           "interview",
         ].map((stat, index) => (
           <Dropdown.Item
-            active={stat == status ? true : ""}
+            active={stat === status ? true : ""}
             onClick={(ev) => onUpdateStatus(id, ev)}
             key={index}
           >
@@ -32,7 +32,7 @@ function Status({ status, onUpdateStatus, id }) {
         ))}
       </DropdownButton>
     );
-  } else if (status == "rejected") {
+  } else if (status === "rejected") {
     return (
       <DropdownButton
         id="dropdown-item-button"
@@ -50,7 +50,7 @@ function Status({ status, onUpdateStatus, id }) {
           "interview",
         ].map((stat, index) => (
           <Dropdown.Item
-            active={stat == status ? true : ""}
+            active={stat === status ? true : ""}
             onClick={(ev) => onUpdateStatus(id, ev)}
             key={index}
           >
@@ -59,7 +59,7 @@ function Status({ status, onUpdateStatus, id }) {
         ))}
       </DropdownButton>
     );
-  } else if (status == "ghosting") {
+  } else if (status === "ghosting") {
     return (
       <DropdownButton
         id="dropdown-item-button"
@@ -77,7 +77,7 @@ function Status({ status, onUpdateStatus, id }) {
           "interview",
         ].map((stat, index) => (
           <Dropdown.Item
-            active={stat == status ? true : ""}
+            active={stat === status ? true : ""}
             onClick={(ev) => onUpdateStatus(id, ev)}
             key={index}
           >
@@ -86,7 +86,7 @@ function Status({ status, onUpdateStatus, id }) {
         ))}
       </DropdownButton>
     );
-  } else if (status == "test") {
+  } else if (status === "test") {
     return (
       <DropdownButton
         id="dropdown-item-button"
@@ -104,7 +104,7 @@ function Status({ status, onUpdateStatus, id }) {
           "interview",
         ].map((stat, index) => (
           <Dropdown.Item
-            active={stat == status ? true : ""}
+            active={stat === status ? true : ""}
             onClick={(ev) => onUpdateStatus(id, ev)}
             key={index}
           >
@@ -113,7 +113,7 @@ function Status({ status, onUpdateStatus, id }) {
         ))}
       </DropdownButton>
     );
-  } else if (status == "interview") {
+  } else if (status === "interview") {
     return (
       <DropdownButton
         id="dropdown-item-button"
@@ -131,7 +131,7 @@ function Status({ status, onUpdateStatus, id }) {
           "interview",
         ].map((stat, index) => (
           <Dropdown.Item
-            active={stat == status ? true : ""}
+            active={stat === status ? true : ""}
             onClick={(ev) => onUpdateStatus(id, ev)}
             key={index}
           >
@@ -140,7 +140,7 @@ function Status({ status, onUpdateStatus, id }) {
         ))}
       </DropdownButton>
     );
-  } else if (status == "applied") {
+  } else if (status === "applied") {
     return (
       <DropdownButton
         id="dropdown-item-button"
@@ -158,7 +158,7 @@ function Status({ status, onUpdateStatus, id }) {
           "interview",
         ].map((stat, index) => (
           <Dropdown.Item
-            active={stat == status ? true : ""}
+            active={stat === status ? true : ""}
             onClick={(ev) => onUpdateStatus(id, ev)}
             key={index}
           >

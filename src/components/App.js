@@ -49,10 +49,10 @@ function App() {
     const getStatus = ev.target.textContent;
 
     // change status
-    const getDataById = jobs.find((jb) => jb.id == idJob);
+    const getDataById = jobs.find((jb) => jb.id === idJob);
     getDataById.status = getStatus;
 
-    const filteredDataNotId = jobs.filter((jb) => jb.id != idJob);
+    const filteredDataNotId = jobs.filter((jb) => jb.id !== idJob);
 
     // masukin data yg bukan sama id, dan data yg udah di ubah statusnya
     setJobs([...filteredDataNotId, getDataById]);
