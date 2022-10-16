@@ -15,8 +15,17 @@ class ModalJob extends React.Component {
     this.statusInput = React.createRef() 
   }
 
-  handleSubmitEdit(ev) {
+  handleSubmitEdit(id, ev) {
     ev.preventDefault();
+
+    let date = this.dateInput.current.value;
+    let role = this.roleInput.current.value;
+    let company = this.companyInput.current.value;
+    let status = this.statusInput.current.value;
+
+    const editedJob = {id, date, role, company, status}
+
+    this.props.onSaveEdit(editedJob)
 
     // console.log(this.dateInput.current.value);
   }
@@ -30,7 +39,7 @@ class ModalJob extends React.Component {
             <Modal.Title>Editing Jobs</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <form onSubmit={this.handleSubmitEdit}>
+            <form onSubmit={(e) => this.handleSubmitEdit(this.props.editJob.id, e)}>
               <div className="mb-3">
                 <label className="form-label">Date Applied</label>
                 <input

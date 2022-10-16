@@ -73,12 +73,35 @@ function App() {
     
   }
 
+
+  function handleSaveEditJob(dataJob) {
+    
+    // looping dan cari data jobs yg sama dgn di edit, kemudian lakukan perubahan
+    // dan di mapping kembali, agar menjadi array obj
+    const newData = jobs.map((jb) => {
+      if(jb.id === dataJob.id) {
+        jb.date = dataJob.date
+        jb.role = dataJob.role
+        jb.company = dataJob.company
+        jb.status = dataJob.status
+
+        return jb;
+      } else {
+        return jb
+      }
+    })
+
+    setJobs(newData)
+
+
+  }
+
   return (
     <div className="p-4">
 
       {
         editDataJob && 
-        <ModalJob show={show} handleClose={handleCloseModal} editJob={editDataJob} />
+        <ModalJob show={show} handleClose={handleCloseModal} editJob={editDataJob} onSaveEdit={handleSaveEditJob}/>
       }
 
       <h1 className="fw-bold text-center title-app">
